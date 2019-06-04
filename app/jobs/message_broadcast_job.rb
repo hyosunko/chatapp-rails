@@ -22,6 +22,7 @@ class MessageBroadcastJob < ApplicationJob
   def broadcast_to_recipient(user, message)
     ActionCable.server.broadcast(
       "chatrooms-#{user.id}",
+      window: render_window(message.chatroom, user),
       message: render_message(message, user),
       chatroom_id: message.chatroom_id
     )
@@ -31,6 +32,13 @@ class MessageBroadcastJob < ApplicationJob
     ApplicationController.render(
       partial: 'messages/message',
       locals: { message: message, user: user }
+    )
+  end
+
+  def render_window(chatroom, user)
+    ApplicationController.render(
+      partial: 'chatrooms/chatroom',
+      locals: { chatroom: chatroom, user: user }
     )
   end
 end
