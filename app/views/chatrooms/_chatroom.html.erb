@@ -1,0 +1,16 @@
+<li>
+  <div class="card card-default" data-chatroom-id="<%= chatroom.id %>">
+    <div class="card-header">
+      <%= link_to chatroom.opposed_user(user).name, '', class: 'toggle-window' %>
+      <%= link_to "x", '', class: "btn btn-default btn-xs pull-right" %>
+    </div>
+    <div class="card-body" style="display: none;">
+      <div class="messages-list">
+        <ul>
+          <%= render 'chatrooms/chatroom_content', messages: chatroom.messages, user: user %>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</li>

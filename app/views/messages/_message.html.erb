@@ -1,0 +1,7 @@
+<li>
+  <div class="<%= user.id == message.user_id ? 'message-sent' : 'message-received' %>">
+    <div class="<%= user.id == message.user_id ? 'message-sent-item' : 'message-received-item' %>">
+      <%= message.body %>
+    </div>
+  </div>
+</li>
