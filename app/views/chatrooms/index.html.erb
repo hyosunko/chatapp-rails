@@ -15,7 +15,7 @@
       <div class="card-body">
         <ul>
           <% @users.each do |user| %>
-            <li><%= user.name %></li>
+            <li><%= link_to user.name, chatrooms_path(user_id: user), remote: true, method: :post %></li>
             <% end %>
           </ul>
         </div>
