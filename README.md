@@ -59,7 +59,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **H. Michael Ko** - *Initial work* - [PurpleBooth](https://github.com/hyosunko)
+* **H. Michael Ko** - *Initial work* - [Chatapp](https://github.com/hyosunko/chatapp-rails)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
