@@ -3,5 +3,10 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/chatrooms', to: 'chatrooms#index'
 
-  resources :chatrooms, only: [:create]
+  resources :chatrooms, only: [:create] do
+    member do
+      post :close
+    end
+  end
 end
+

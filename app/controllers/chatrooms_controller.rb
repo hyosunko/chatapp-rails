@@ -16,6 +16,16 @@ class ChatroomsController < ApplicationController
     end
   end
 
+  def close
+    @chatroom = Chatroom.find(params[:id])
+
+    session[:chatrooms].delete(@chatroom.id)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def add_to_chatrooms

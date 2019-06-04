@@ -2,7 +2,7 @@
   <div class="card card-default" data-chatroom-id="<%= chatroom.id %>">
     <div class="card-header">
       <%= link_to chatroom.opposed_user(user).name, '', class: 'toggle-window' %>
-      <%= link_to "x", '', class: "btn btn-default btn-xs pull-right" %>
+      <%= link_to "x", close_chatroom_path(chatroom), class: "btn btn-default btn-xs pull-right", remote: true, method: :post %>
     </div>
     <div class="card-body" style="display: none;">
       <div class="messages-list">
