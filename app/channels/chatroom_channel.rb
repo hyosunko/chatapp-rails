@@ -12,9 +12,6 @@ class ChatroomChannel < ApplicationCable::Channel
       hash[el.values.first] = el.values.last
     end
 
-    ActionCable.server.broadcast(
-      "chatroom-#{current_user.id}",
-      message: message_params
-    )
+    Message.create(message_params)
   end
 end
