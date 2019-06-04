@@ -7,9 +7,30 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
 
   <body>
+    <div class="navbar navbar-expand-lg navbar-light", style="background-color: #e3f2fd;">
+      <div class="container">
+        <div class="navbar-brand">
+          <% if user_signed_in? %>
+            <%= link_to "#{current_user.name}'s chatroom", root_path, class: "navbar-brand" %>
+          <% else %>
+            <%= link_to "Chat room", root_path, class: "nav-item" %>
+          <% end %>
+        </div>
+        <div class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <%= link_to "Chat Room", chatrooms_path, class: "nav-item nav-link" %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete , class: "nav-item nav-link" %>
+          <% else %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-item nav-link" %>
+            <%= link_to "Log In", new_user_session_path, class: "nav-item nav-link" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
