@@ -2,7 +2,7 @@
   <div class="card card-default" data-chatroom-id="<%= chatroom.id %>">
     <div class="card-header">
       <%= link_to chatroom.opposed_user(user).name, '', class: 'toggle-window' %>
-      <%= link_to "x", close_chatroom_path(chatroom), class: "btn btn-default btn-xs pull-right", remote: true, method: :post %>
+      <%= link_to "x", close_chatroom_path(chatroom), class: "btn btn-outline-info btn-sm", remote: true, method: :post %>
     </div>
     <div class="card-body" style="display: none;">
       <div class="messages-list">
@@ -10,7 +10,11 @@
           <%= render 'chatrooms/chatroom_content', messages: chatroom.messages, user: user %>
         </ul>
       </div>
-
+      <%= form_for [chatroom, chatroom.messages.new], remote: true do |f| %>
+        <%= f.hidden_field :user_id, value: user.id %>
+        <%= f.text_area :body, class: "form-control" %>
+        <%= f.submit "Send", class: "btn btn-success" %>
+      <% end %>
     </div>
   </div>
 </li>

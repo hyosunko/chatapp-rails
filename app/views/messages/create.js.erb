@@ -1,0 +1,3 @@
+var chatroom = $('#chatrooms-list').find("[data-chatroom-id='" + "<%= @chatroom.id %>" + "']");
+chatroom.find('.messages-list').find('ul').append("<%= j(render 'messages/message', message: @message, user: current_user) %>");
+chatroom.find('textarea').val('');
